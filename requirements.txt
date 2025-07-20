@@ -2,6 +2,7 @@
 autogen-agentchat==0.2.40
 autogen-core==0.4.0
 autogen-ext==0.4.0
+pyautogen==0.10.0
 openai
 langchain
 langchain-community
@@ -13,3 +14,4 @@ schedule
 Pillow
 lxml
 pydantic
+
