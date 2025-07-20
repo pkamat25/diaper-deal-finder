@@ -1,0 +1,9 @@
+# Keep real API keys safe
+.env
+
+# Python cache files
+__pycache__/
+*.pyc
+
+# Generated files  
+diaper_everyday_deals.md
