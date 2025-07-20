@@ -4,7 +4,9 @@ Automated diaper deal search using AutoGen and LangChain
 """
 
 import asyncio
-from autogen_agentchat.messages import TextMessage
+from io import BytesIO
+import requests
+from autogen_agentchat.messages import TextMessage, MultiModalMessage
 from autogen_ext.models.openai import OpenAIChatCompletionClient
 from autogen_agentchat.agents import AssistantAgent
 from autogen_core import CancellationToken
