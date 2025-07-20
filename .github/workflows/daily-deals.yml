@@ -3,7 +3,7 @@ name: Daily Diaper Deals
 on:
   schedule:
     # Runs daily at 4:00 PM UTC (adjust for your timezone)
-    - cron: '0 16 * * *'
+    - cron: '0 6 * * *'
   workflow_dispatch: # Allows manual trigger
 
 jobs:
