@@ -22,11 +22,7 @@ jobs:
     - name: Install dependencies
       run: |
         pip install -r requirements.txt
-         
-
-           
-
-        
+  
     - name: Run diaper deal finder
       env:
         OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
