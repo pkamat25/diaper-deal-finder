@@ -1,7 +1,8 @@
 # Simple AutoGen requirements - let pip resolve
-autogen-agentchat==0.2.40
-autogen-core==0.4.0
-autogen-ext==0.4.0
+autogen_agentchat
+autogen_ext
+langchain
+python-dotenv
 pyautogen
 openai
 langchain
@@ -14,4 +15,7 @@ schedule
 Pillow
 lxml
 pydantic
+
+
+# Add any other missing packages as needed
 
