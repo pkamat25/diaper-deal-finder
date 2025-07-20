@@ -61,7 +61,7 @@ STEP 2: Write all findings to a file called diaper_everyday_deals.md with these 
 STEP 3: **Highlight Best Deals**: Clearly indicate which brand and store offers the best value. For example, mention the lowest price per nappy followed by the supermarket where it's available.
 Reply with a short summary of the selected deal, only after saving all deals to the file."""
 
-    # Setup tools (exactly as you had)
+    # Setup tools 
     serper = GoogleSerperAPIWrapper()
     langchain_serper = Tool(name="internet_search", func=serper.run, description="useful for when you need to search the internet")
     autogen_serper = LangChainToolAdapter(langchain_serper)
@@ -75,8 +75,15 @@ Reply with a short summary of the selected deal, only after saving all deals to 
     for tool in autogen_tools:
         print(tool.name, tool.description)
 
-    # Setup agent (exactly as you had)
-    model_client = OpenAIChatCompletionClient(model="gpt-4o-mini")
+    # Setup agent 
+    print("🤖 Using open source LLM: Meta Llama 3.1 70B")
+    
+    model_client = OpenAIChatCompletionClient(
+        model="meta-llama/Meta-Llama-3.1-70B-Instruct-Turbo",  # Open source Llama model
+        api_key=os.getenv("TOGETHER_API_KEY"),  # 
+        base_url="https://api.together.xyz/v1"  # Together AI endpoint
+    )
+    
     agent = AssistantAgent(name="searcher", model_client=model_client, tools=autogen_tools, reflect_on_tool_use=True)
     
     # Run the search (exactly as you had)
