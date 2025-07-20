@@ -1,24 +1,27 @@
-# AutoGen packages - compatible versions
+# AutoGen - working versions that install correctly
 autogen-agentchat==0.2.40
 autogen-core==0.4.0
-autogen-ext[openai]==0.4.0
+autogen-ext==0.4.0
 
-# LangChain packages
-langchain>=0.1.0
-langchain-community>=0.0.20
+# OpenAI - compatible version
+openai==1.51.0
 
-# Search and tools
-google-search-results>=2.4.2
+# LangChain - compatible versions  
+langchain==0.1.20
+langchain-community==0.0.38
 
-# Environment and utilities
-python-dotenv>=1.0.0
-beautifulsoup4>=4.11.0
-requests>=2.28.0
-schedule>=1.2.0
+# Search
+google-search-results==2.4.2
 
-# Image processing
-Pillow>=9.0.0
+# Core utilities
+python-dotenv==1.0.1
+requests==2.31.0
+beautifulsoup4==4.12.3
+schedule==1.2.2
 
-# Additional dependencies
-lxml>=4.9.0
-pydantic>=2.0.0
+# Image processing (for your imports)
+Pillow==10.4.0
+
+# Additional
+lxml==5.3.0
+pydantic==2.8.2
