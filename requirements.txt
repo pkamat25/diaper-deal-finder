@@ -2,7 +2,7 @@
 autogen_agentchat
 autogen_ext
 langchain
-
+python-dotenv
 tiktoken
 pyautogen
 openai
