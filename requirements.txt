@@ -1,9 +1,7 @@
-# Fixed requirements.txt with correct AutoGen packages
-
-# AutoGen packages - correct names
-autogen-agentchat>=0.2.0
-autogen-core>=0.2.0
-autogen-ext>=0.2.0
+# AutoGen packages - compatible versions
+autogen-agentchat==0.2.40
+autogen-core==0.4.0
+autogen-ext[openai]==0.4.0
 
 # LangChain packages
 langchain>=0.1.0
@@ -18,7 +16,7 @@ beautifulsoup4>=4.11.0
 requests>=2.28.0
 schedule>=1.2.0
 
-# Image processing (for your imports)
+# Image processing
 Pillow>=9.0.0
 
 # Additional dependencies
