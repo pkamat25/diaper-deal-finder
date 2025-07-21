@@ -79,12 +79,23 @@ Reply with a short summary of the selected deal, only after saving all deals to 
     # Setup agent 
     print("🤖 Using open source LLM: Meta Llama 3.1 70B")
 
+    
+    # NEW: Define model info for Llama 
+    llama_model_info = ModelInfo(
+        vision=False,           # Llama doesn't have vision capabilities
+        function_calling=True,  # Llama supports function calling
+        json_output=True,      # Llama can output JSON
+    )
+
+    # UPDATED: Setup AutoGen agent with open source LLM
     model_client = OpenAIChatCompletionClient(
-    model="meta-llama/Meta-Llama-3.1-70B-Instruct-Turbo",
-    api_key=os.getenv("TOGETHER_API_KEY"),
-    base_url="https://api.together.xyz/v1",
-    model_info={"provider": "together", "max_tokens": 4096, "other_details": "..."}  # Adjust as needed
-)
+        model="meta-llama/Meta-Llama-3.1-8B-Instruct-Turbo",  # Open source Llama!
+        api_key=os.getenv("TOGETHER_API_KEY"),  # Together AI key
+        base_url="https://api.together.xyz/v1",  # Together AI endpoint
+        model_info=llama_model_info  # This fixes the validation error!
+    )
+
+ 
     
     agent = AssistantAgent(name="searcher", model_client=model_client, tools=autogen_tools, reflect_on_tool_use=True)
     
