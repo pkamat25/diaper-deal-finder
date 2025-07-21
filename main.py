@@ -81,30 +81,15 @@ Reply with a short summary of the selected deal, only after saving all deals to 
     model_client = OpenAIChatCompletionClient(model="gpt-4o-mini")
     agent = AssistantAgent(name="searcher", model_client=model_client, tools=autogen_tools, reflect_on_tool_use=True)
 
-    
-   
-
-    # UPDATED: Setup AutoGen agent with open source LLM
-    model_client = OpenAIChatCompletionClient(
-        model="meta-llama/Meta-Llama-3.1-8B-Instruct-Turbo",  # Open source Llama!
-        api_key=os.getenv("TOGETHER_API_KEY"),  # Together AI key
-        base_url="https://api.together.xyz/v1",  # Together AI endpoint
-        
-    )
-
- 
-    
-    agent = AssistantAgent(name="searcher", model_client=model_client, tools=autogen_tools, reflect_on_tool_use=True)
-    
-    # Run the search (exactly as you had)
+    # Run the search 
     message = TextMessage(content=prompt, source="user")
     result = await agent.on_messages([message], cancellation_token=CancellationToken())
     
-    # Print results (exactly as you had)
+    # Print results 
     for message in result.inner_messages:
         print(message.content)
     
-    # Send email (exactly as you had)
+    # Send email 
     from email_sender import send_diaper_deals
     send_diaper_deals()
 
