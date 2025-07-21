@@ -78,12 +78,13 @@ Reply with a short summary of the selected deal, only after saving all deals to 
 
     # Setup agent 
     print("🤖 Using open source LLM: Meta Llama 3.1 70B")
-    
+
     model_client = OpenAIChatCompletionClient(
-        model="meta-llama/Meta-Llama-3.1-70B-Instruct-Turbo",  # Open source Llama model
-        api_key=os.getenv("TOGETHER_API_KEY"),  # 
-        base_url="https://api.together.xyz/v1"  # Together AI endpoint
-    )
+    model="meta-llama/Meta-Llama-3.1-70B-Instruct-Turbo",
+    api_key=os.getenv("TOGETHER_API_KEY"),
+    base_url="https://api.together.xyz/v1",
+    model_info={"provider": "together", "max_tokens": 4096, "other_details": "..."}  # Adjust as needed
+)
     
     agent = AssistantAgent(name="searcher", model_client=model_client, tools=autogen_tools, reflect_on_tool_use=True)
     
