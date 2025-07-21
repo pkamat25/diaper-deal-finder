@@ -85,7 +85,7 @@ Reply with a short summary of the selected deal, only after saving all deals to 
 
     # UPDATED: Setup AutoGen agent with open source LLM
     model_client = OpenAIChatCompletionClient(
-        model="gpt-3.5-turbo",  # Open source Llama!
+        model="meta-llama/Meta-Llama-3.1-8B-Instruct-Turbo",  # Open source Llama!
         api_key=os.getenv("TOGETHER_API_KEY"),  # Together AI key
         base_url="https://api.together.xyz/v1",  # Together AI endpoint
         
