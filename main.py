@@ -73,12 +73,13 @@ Reply with a short summary of the selected deal, only after saving all deals to 
     for tool in langchain_file_management_tools:
         autogen_tools.append(LangChainToolAdapter(tool))
 
-    # Print available tools (as you had)
+   # Print available tools 
     for tool in autogen_tools:
         print(tool.name, tool.description)
 
     # Setup agent 
-    print("🤖 Using open source LLM: Meta Llama 3.1 70B")
+    model_client = OpenAIChatCompletionClient(model="gpt-4o-mini")
+    agent = AssistantAgent(name="searcher", model_client=model_client, tools=autogen_tools, reflect_on_tool_use=True)
 
     
    
