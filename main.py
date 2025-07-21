@@ -17,6 +17,7 @@ from dotenv import load_dotenv
 from autogen_ext.tools.langchain import LangChainToolAdapter
 from langchain_community.utilities import GoogleSerperAPIWrapper
 from langchain_community.agent_toolkits import FileManagementToolkit
+from autogen_ext.models.openai import OpenAIChatCompletionClient, ModelInfo
 from langchain.agents import Tool
 
 # Load environment variables
