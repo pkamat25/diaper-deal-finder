@@ -22,8 +22,8 @@ load_dotenv(override=True)
 async def main():
     """Main function to run diaper deal search"""
     
-    # Updated prompt - removed file writing instruction
-    prompt = """Your task is to find REAL DISCOUNTS and SPECIALS on Size 3 baby nappies from Australian supermarkets Coles and Woolworths.
+    
+ prompt = """Your task is to find REAL DISCOUNTS and SPECIALS on Size 3 baby nappies from Australian supermarkets Coles and Woolworths.
 
 🇦🇺 AUSTRALIAN SEARCH STRATEGY:
 STEP 1 - SEARCH COLES SPECIALS:
@@ -55,7 +55,9 @@ STEP 3: Present all findings in clear table format with these details:
 
 STEP 4: **Highlight Best Deals**: Clearly indicate which brand and store offers the best value. For example, mention the lowest price per nappy followed by the supermarket where it's available.
 
-Provide a comprehensive summary of all deals found, formatted nicely for a daily deals report."""
+Provide a comprehensive summary of all deals found, formatted nicely for a daily deals report.
+
+IMPORTANT: In your final response, do NOT include any FunctionCall details or raw search results. Only provide the clean, formatted summary."""
 
     # Setup tools (ONLY search tool, no file management)
     serper = GoogleSerperAPIWrapper()
