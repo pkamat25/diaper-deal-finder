@@ -23,7 +23,7 @@ async def main():
     """Main function to run diaper deal search"""
     
     
-  prompt = """Your task is to find REAL DISCOUNTS and SPECIALS on Size 3 baby nappies from Australian supermarkets Coles and Woolworths.
+prompt = """Your task is to find REAL DISCOUNTS and SPECIALS on Size 3 baby nappies from Australian supermarkets Coles and Woolworths.
 
 🇦🇺 AUSTRALIAN SEARCH STRATEGY:
 STEP 1 - SEARCH COLES SPECIALS:
