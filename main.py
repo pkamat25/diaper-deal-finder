@@ -80,11 +80,12 @@ Provide a comprehensive summary of all deals found, formatted nicely for a daily
     agent_response = ""
     print("=== AGENT RESPONSES ===")
     for message in result.inner_messages:
-        print(message.content)
-        if isinstance(message.content, list):
+    print(message.content)
+    if isinstance(message.content, list):
     agent_response += "\n\n".join(message.content) + "\n\n"
-else:
+    else:
     agent_response += str(message.content) + "\n\n"
+    
     
     # Manually write the response to markdown file
     file_name = "diaper_everyday_deals.md"
