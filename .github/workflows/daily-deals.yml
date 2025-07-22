@@ -40,3 +40,19 @@ jobs:
         else
           echo "❌ Something went wrong"
         fi
+    - name: Debug file creation
+      run: |
+        echo "=== DEBUGGING FILE CREATION ==="
+        echo "Current directory:"
+        pwd
+        echo "Directory contents:"
+        ls -la
+        echo "Looking for ANY .md files:"
+        find . -name "*.md" -type f 2>/dev/null || echo "No .md files found anywhere"
+        echo "Looking specifically for diaper_everyday_deals.md:"
+        find . -name "diaper_everyday_deals.md" -type f 2>/dev/null || echo "diaper_everyday_deals.md not found"
+        echo "All files in current directory:"
+        ls -la .
+        echo "Searching for 'diaper' in filenames:"
+        find . -name "*diaper*" -type f 2>/dev/null || echo "No files with 'diaper' in name"
+        echo "=== END DEBUG ==="
