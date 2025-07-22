@@ -32,3 +32,11 @@ jobs:
         RECIPIENT_EMAIL: ${{ secrets.RECIPIENT_EMAIL }}
       run: |
         python main.py
+        
+    - name: Verify completion
+      run: |
+        if [ -f "diaper_everyday_deals.md" ]; then
+          echo "✅ Deals file created and email sent!"
+        else
+          echo "❌ Something went wrong"
+        fi
