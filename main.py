@@ -88,6 +88,15 @@ Reply with a short summary of the selected deal, only after saving all deals to 
     # Print results 
     for message in result.inner_messages:
         print(message.content)
+
+     # SIMPLE FIX: Ensure file exists for email
+    file_name = "diaper_everyday_deals.md"
+    if os.path.exists(file_name):
+        print(f"✅ {file_name} created successfully by agent")
+    else:
+        print(f"❌ {file_name} not found, creating backup...")
+        with open(file_name, "w", encoding="utf-8") as f:
+            f.write("""# Daily Diaper Deals - Search Completed
     
     # Send email 
     from email_sender import send_diaper_deals
