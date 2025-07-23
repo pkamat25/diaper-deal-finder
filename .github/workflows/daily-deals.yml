@@ -15,7 +15,7 @@ jobs:
       uses: actions/checkout@v4
 
     - name: Prepare output folder
-      run: mkdir -p artifacts
+      run: pwd,mkdir -p artifacts
 
     - name: Upload diaper deals file
       uses: actions/upload-artifact@v4
