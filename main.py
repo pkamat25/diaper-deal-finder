@@ -26,11 +26,13 @@ async def main():
     prompt = """Your task is to find REAL DISCOUNTS and SPECIALS on Size 3 baby nappies from Australian supermarkets Coles and Woolworths.
 
 🇦🇺 AUSTRALIAN SEARCH STRATEGY:
+
 STEP 1 - SEARCH COLES SPECIALS:
 Search these exact terms:
 - "site:coles.com.au baby nappies size 3 special"
 - "Coles catalogue baby nappies half price"
 - "Coles Down Down baby nappies specials"
+
 Look for: Red "Special" tags, Yellow "Down Down" pricing, "Was $X Now $Y"
 
 STEP 2 - SEARCH WOOLWORTHS SPECIALS:
@@ -38,6 +40,7 @@ Search these exact terms:
 - "site:woolworths.com.au baby nappies size 3 special"  
 - "Woolworths catalogue baby nappies low price"
 - "Woolworths baby nappies % off discount"
+
 Look for: Red "Special" badges, Orange "Low Price" tags, Crossed-out prices
 
 ⚠️ CRITICAL VALIDATION:
@@ -46,20 +49,21 @@ Look for: Red "Special" badges, Orange "Low Price" tags, Crossed-out prices
 - If prices same = NOT A DEAL
 - Look for "Special", "Half Price", "% off", "Save $" badges
 
-STEP 3: Present all findings in clear table format with these details: 
+STEP 2: Write all findings to a file called diaper_everyday_deals.md with these details clear table format: 
 - Supermarket name
 - Diaper brand and product Type
 - Regular price
 - Offer Price / Discounted Price  
 - Pack size and price per diaper
 
-STEP 4: **Highlight Best Deals**: Clearly indicate which brand and store offers the best value. For example, mention the lowest price per nappy followed by the supermarket where it's available.
+STEP 3: **Highlight Best Deals**: Clearly indicate which brand and store offers the best value. For example, mention the lowest price per nappy followed by the supermarket where it's available.
+Reply with a short summary of the selected deal, only after saving all deals to the file.
 
-Provide a comprehensive summary of all deals found, formatted nicely for a daily deals report.
+CRITICAL: After searching, use the write_file tool to save results to diaper_everyday_deals.md
 
-IMPORTANT: In your final response, do NOT include any FunctionCall details or raw search results. Only provide the clean, formatted summary."""
+#IMPORTANT: In your final response, do NOT include any FunctionCall details or raw search results. Only provide the clean, formatted summary."""
 
-    # Setup tools (ONLY search tool, no file management)
+    # Setup tools 
     serper = GoogleSerperAPIWrapper()
     langchain_serper = Tool(name="internet_search", func=serper.run, description="useful for when you need to search the internet")
     autogen_serper = LangChainToolAdapter(langchain_serper)
@@ -78,15 +82,7 @@ IMPORTANT: In your final response, do NOT include any FunctionCall details or ra
     message = TextMessage(content=prompt, source="user")
     result = await agent.on_messages([message], cancellation_token=CancellationToken())
     
-    # Capture agent's response and write to file
-    agent_response = ""
-    print("=== AGENT RESPONSES ===")
-    for message in result.inner_messages:
-        print(message.content)
-        if isinstance(message.content, list):
-            agent_response += "\n\n".join(str(item) for item in message.content) + "\n\n"
-        else:
-            agent_response += str(message.content) + "\n\n"
+   
 
 
     
