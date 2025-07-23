@@ -50,7 +50,7 @@ STEP 2: Write all findings to a file called diaper_everyday_deals.md with these 
 - Pack size and price per diaper
 STEP 3: **Highlight Best Deals**: Clearly indicate which brand and store offers the best value. For example, mention the lowest price per nappy followed by the supermarket where it's available.
 Reply with a short summary of the selected deal, only after saving all deals to the file.
-CRITICAL: After searching, use the write_file tool to save results to diaper_everyday_deals.md
+#CRITICAL: After searching, use the write_file tool to save results to diaper_everyday_deals.md
 IMPORTANT: In your final response, do NOT include any FunctionCall details or raw search results. Only provide the clean, formatted summary."""
 
     # Setup tools 
@@ -60,7 +60,7 @@ IMPORTANT: In your final response, do NOT include any FunctionCall details or ra
     autogen_tools = [autogen_serper]
     
     # Add LangChain file management tools
-    langchain_file_management_tools = FileManagementToolkit(root_dir="./artifacts").get_tools()
+    langchain_file_management_tools = FileManagementToolkit(root_dir="/home/runner/work/diaper-deal-finder/diaper-deal-finder/artifacts").get_tools()
     for tool in langchain_file_management_tools:
         autogen_tools.append(LangChainToolAdapter(tool))
    
