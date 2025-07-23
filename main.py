@@ -82,7 +82,7 @@ IMPORTANT: In your final response, do NOT include any FunctionCall details or ra
         print(message.content)
    
     # Check if file was created
-    if not os.path.exists("diaper_everyday_deals.md"):
+    if not os.path.exists("./artifacts/diaper_everyday_deals.md"):
         print("❌ File creation failed - checking console for errors")
     else:
         print("✅ diaper_everyday_deals.md created successfully")
