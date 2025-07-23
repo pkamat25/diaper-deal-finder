@@ -60,7 +60,7 @@ IMPORTANT: In your final response, do NOT include any FunctionCall details or ra
     autogen_tools = [autogen_serper]
     
     # Add LangChain file management tools
-    langchain_file_management_tools = FileManagementToolkit(root_dir=".").get_tools()
+    langchain_file_management_tools = FileManagementToolkit(root_dir="./artifacts").get_tools()
     for tool in langchain_file_management_tools:
         autogen_tools.append(LangChainToolAdapter(tool))
    
