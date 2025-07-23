@@ -21,7 +21,7 @@ jobs:
       uses: actions/upload-artifact@v4
       with:
         name: diaper-deals
-        path: artifacts/diaper_everyday_deals.md
+        path: /home/runner/work/diaper-deal-finder/diaper-deal-finder/artifacts/diaper_everyday_deals.md
       
     - name: Set up Python
       uses: actions/setup-python@v4
